@@ -38,8 +38,8 @@ export function SiteHeaderChrome() {
           HEADER_WIDTH
         )}
       >
-        <div className="grid h-full grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 sm:px-6">
-          <div className="justify-self-start">
+        <div className="grid h-full grid-cols-[1fr_auto_1fr] items-center gap-4 pl-8 pr-4 sm:pl-10 sm:pr-6">
+          <div className="flex items-center justify-self-start">
             <Logo />
           </div>
 
@@ -57,8 +57,8 @@ export function SiteHeaderChrome() {
             </ul>
           </div>
 
-          <div className="flex items-center justify-end gap-3 justify-self-end">
-            <div className="hidden items-center gap-3 lg:flex">
+          <div className="flex h-9 items-center justify-end gap-3 justify-self-end">
+            <div className="hidden h-9 items-center gap-3 lg:flex">
               <a
                 href="#demo"
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
