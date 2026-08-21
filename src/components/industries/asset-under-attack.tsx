@@ -59,7 +59,7 @@ export function AssetUnderAttack({
   label?: string;
 }) {
   return (
-    <BlueprintFrame className="overflow-hidden bg-background/80 p-6" label={label}>
+    <BlueprintFrame className="overflow-hidden bg-background/80 p-4 sm:p-6" label={label}>
       <div className="relative mx-auto aspect-square w-full max-w-sm">
         <div
           aria-hidden
@@ -67,9 +67,9 @@ export function AssetUnderAttack({
         />
         <div className="absolute inset-[10%] rounded-full border border-dashed border-hairline" />
 
-        <div className="fs-coin absolute inset-[28%] flex items-center justify-center rounded-full border border-primary/45 bg-gradient-to-br from-white/80 via-[#ddd6fe]/50 to-primary/25 shadow-[0_0_40px_-8px_rgba(92,60,180,0.45)]">
-          <span className="absolute inset-[10%] rounded-full border border-primary/20" />
-          <span className="absolute inset-[22%] rounded-full border border-dashed border-primary/25" />
+        <div className="fs-coin absolute inset-[28%] flex items-center justify-center rounded-full border border-primary/60 bg-gradient-to-br from-white/80 via-[#ddd6fe]/50 to-primary/25 shadow-[0_0_40px_-8px_rgba(92,60,180,0.45)]">
+          <span className="absolute inset-[10%] rounded-full border border-primary/35" />
+          <span className="absolute inset-[22%] rounded-full border border-dashed border-primary/40" />
           {children}
         </div>
 
@@ -101,7 +101,7 @@ export function IndustryMark({
           className="absolute inset-[16%] rounded-full bg-primary/12 blur-2xl"
         />
         <div className="absolute inset-[18%] rounded-full border border-dashed border-hairline" />
-        <div className="absolute inset-[28%] rounded-full border border-primary/35 bg-gradient-to-br from-white/80 via-[#ddd6fe]/50 to-primary/20" />
+        <div className="absolute inset-[28%] rounded-full border border-primary/50 bg-gradient-to-br from-white/80 via-[#ddd6fe]/50 to-primary/20" />
         <Icon className="relative size-16 text-primary" />
       </div>
     </BlueprintFrame>

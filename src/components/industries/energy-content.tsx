@@ -114,15 +114,15 @@ export function EnergyContent() {
       <section className="relative -mt-px overflow-hidden pb-16 pt-0 text-primary-foreground lg:pb-24">
         <InsetGrainient wash="hero" className="overflow-hidden" />
         <div
-          className="pointer-events-none absolute top-0 right-[max(0px,calc(50%-40rem))] left-[max(0px,calc(50%-40rem))] h-px bg-white/45"
+          className="pointer-events-none absolute top-0 right-[max(0px,calc(50%-40rem))] left-[max(0px,calc(50%-40rem))] h-px bg-white/70"
           aria-hidden
         />
-        <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 pt-20 lg:grid-cols-2 lg:gap-16 lg:pt-28">
+        <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-4 pt-16 sm:px-6 sm:pt-20 lg:grid-cols-2 lg:gap-16 lg:pt-28">
           <div className="flex flex-col gap-6">
             <TechLabel className="text-primary-foreground/75">
               [ Solutions for Energy and Utilities – use case ]
             </TechLabel>
-            <h1 className="text-4xl font-medium leading-[1.08] tracking-tight sm:text-5xl">
+            <h1 className="text-3xl font-medium leading-[1.08] tracking-tight sm:text-5xl">
               Powering Security: Cybersecurity Solutions for Energy and
               Utilities
             </h1>
@@ -171,8 +171,8 @@ export function EnergyContent() {
         </div>
       </section>
 
-      <section className="relative py-24 lg:py-32">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6">
+      <section className="relative py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 sm:px-6">
           <SectionRule step="01" label="Current Challenges" />
           <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">
             Current Challenges
@@ -180,7 +180,7 @@ export function EnergyContent() {
           <Accordion className="border-y border-hairline">
             {challenges.map((item, i) => (
               <AccordionItem key={item.title} value={`challenge-${i}`}>
-                <AccordionTrigger className="rounded-none py-5 text-base hover:no-underline">
+                <AccordionTrigger className="rounded-none py-5 text-left text-base whitespace-normal hover:no-underline">
                   {item.title}
                 </AccordionTrigger>
                 <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
@@ -192,19 +192,19 @@ export function EnergyContent() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-y border-hairline py-24 text-primary-foreground lg:py-28">
+      <section className="relative overflow-hidden border-y border-hairline py-16 text-primary-foreground sm:py-24 lg:py-28">
         <InsetGrainient wash="metrics" />
-        <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12 px-6">
+        <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12 px-4 sm:px-6">
           <SectionRule
             step="02"
             label="Process"
             className="[&_span]:text-primary-foreground/70"
-            lineClassName="bg-primary-foreground/25"
+            lineClassName="bg-primary-foreground/42"
           />
           <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">
             How it works ?
           </h2>
-          <div className="grid gap-px border border-primary-foreground/20 bg-primary-foreground/20 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-px border border-primary-foreground/32 bg-primary-foreground/32 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step) => (
               <div
                 key={step.label}
@@ -222,8 +222,8 @@ export function EnergyContent() {
         </div>
       </section>
 
-      <section className="relative py-24 lg:py-32">
-        <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6">
+      <section className="relative py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 sm:px-6">
           <SectionRule step="03" label="Key Benefits" />
           <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">
             Key Benefits
@@ -249,23 +249,23 @@ export function EnergyContent() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-y border-hairline py-24 text-primary-foreground lg:py-28">
+      <section className="relative overflow-hidden border-y border-hairline py-16 text-primary-foreground sm:py-24 lg:py-28">
         <InsetGrainient wash="metrics" />
-        <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
+        <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col gap-8">
             <SectionRule
               step="04"
               label="Difference"
               className="[&_span]:text-primary-foreground/70"
-              lineClassName="bg-primary-foreground/25"
+              lineClassName="bg-primary-foreground/42"
             />
             <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">
               What makes us unique?
             </h2>
-            <ul className="flex flex-col divide-y divide-white/15 border-y border-white/15">
+            <ul className="flex flex-col divide-y divide-white/28 border-y border-white/28">
               {uniquePoints.map((point) => (
                 <li key={point.title} className="flex gap-3 py-4">
-                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center border border-primary-foreground/30 text-primary-foreground">
+                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center border border-primary-foreground/50 text-primary-foreground">
                     <Check className="size-3.5" />
                   </span>
                   <div className="flex flex-col gap-1">
@@ -296,8 +296,8 @@ export function EnergyContent() {
         </div>
       </section>
 
-      <section className="relative py-24 lg:py-32">
-        <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6">
+      <section className="relative py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 sm:px-6">
           <SectionRule step="05" label="Related Use Cases" />
           <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">
             Related Use Cases

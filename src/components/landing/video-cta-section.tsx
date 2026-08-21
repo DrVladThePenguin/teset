@@ -277,16 +277,16 @@ export function VideoCtaSection() {
   return (
     <section className="relative">
       {/* Heading block — scrolls away; not part of the zoom stage */}
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 pt-24 pb-10 lg:pt-32 lg:pb-12">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 pt-16 pb-8 sm:px-6 sm:pt-24 sm:pb-10 lg:pt-32 lg:pb-12">
         <SectionRule step="08" label="See it in action" />
         <div className="flex w-full flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
-          <h2 className="max-w-2xl text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
+          <h2 className="max-w-2xl text-2xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
             Test Security at Attacker Speed.
           </h2>
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
             <Button
               size="lg"
-              className="h-11 rounded-full px-6"
+              className="h-11 w-full rounded-full px-6 sm:w-auto"
               render={<a href="#demo" />}
               nativeButton={false}
             >
@@ -295,7 +295,7 @@ export function VideoCtaSection() {
             <Button
               size="lg"
               variant="outline"
-              className="h-11 rounded-full border-hairline bg-transparent px-6"
+              className="h-11 w-full rounded-full border-hairline bg-transparent px-6 sm:w-auto"
               render={<a href="#process" />}
               nativeButton={false}
             >

@@ -22,8 +22,8 @@ const proofs = [
 
 export function ProofSection() {
   return (
-    <section id="features" className="relative py-24 lg:py-32">
-      <div className="mx-auto grid max-w-6xl items-start gap-14 px-6 lg:grid-cols-2 lg:gap-24">
+    <section id="features" className="relative py-16 sm:py-24 lg:py-32">
+      <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 sm:gap-14 sm:px-6 lg:grid-cols-2 lg:gap-24">
         <div className="flex flex-col gap-6">
           <SectionRule step="04" label="Capability" />
           <h2 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">

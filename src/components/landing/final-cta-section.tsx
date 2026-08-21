@@ -10,12 +10,12 @@ export function FinalCtaSection({
   secondaryLabel?: string;
 }) {
   return (
-    <section id="demo" className="relative px-6 pb-16 pt-8 lg:pb-24 lg:pt-12">
+    <section id="demo" className="relative px-4 pb-12 pt-6 sm:px-6 sm:pb-16 sm:pt-8 lg:pb-24 lg:pt-12">
       <div className="relative mx-auto max-w-6xl overflow-hidden bg-[#3d2a8a] text-primary-foreground">
         {/* Blueprint grid — more visible */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.22]"
+          className="pointer-events-none absolute inset-0 opacity-[0.32]"
           style={{
             backgroundImage: `
               linear-gradient(to right, rgba(255,255,255,0.55) 1px, transparent 1px),
@@ -31,14 +31,14 @@ export function FinalCtaSection({
         />
 
         {/* Corner crop marks */}
-        <span className="pointer-events-none absolute top-3 left-3 size-4 border-t border-l border-white/50" />
-        <span className="pointer-events-none absolute top-3 right-3 size-4 border-t border-r border-white/50" />
-        <span className="pointer-events-none absolute bottom-3 left-3 size-4 border-b border-l border-white/50" />
-        <span className="pointer-events-none absolute right-3 bottom-3 size-4 border-r border-b border-white/50" />
+        <span className="pointer-events-none absolute top-3 left-3 size-4 border-t border-l border-white/70" />
+        <span className="pointer-events-none absolute top-3 right-3 size-4 border-t border-r border-white/70" />
+        <span className="pointer-events-none absolute bottom-3 left-3 size-4 border-b border-l border-white/70" />
+        <span className="pointer-events-none absolute right-3 bottom-3 size-4 border-r border-b border-white/70" />
 
-        <div className="relative grid gap-10 px-8 py-14 sm:px-12 lg:grid-cols-[1.4fr_auto] lg:items-center lg:gap-16 lg:px-16 lg:py-16">
+        <div className="relative grid gap-8 px-5 py-10 sm:gap-10 sm:px-12 sm:py-14 lg:grid-cols-[1.4fr_auto] lg:items-center lg:gap-16 lg:px-16 lg:py-16">
           <div className="flex flex-col gap-4">
-            <h2 className="max-w-xl text-3xl font-medium tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
+            <h2 className="max-w-xl text-2xl font-medium tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
               {title}
             </h2>
             <p className="max-w-lg text-sm leading-relaxed text-white/75 sm:text-base">

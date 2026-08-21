@@ -21,8 +21,8 @@ const native = [
 
 export function ComparisonSection() {
   return (
-    <section className="relative py-24 lg:py-32">
-      <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6">
+    <section className="relative py-16 sm:py-24 lg:py-32">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 sm:gap-12 sm:px-6">
         <div className="flex max-w-3xl flex-col gap-5">
           <SectionRule step="06" label="Comparison" />
           <h2 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">

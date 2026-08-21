@@ -51,9 +51,9 @@ export function SiteBackground() {
       <div className="absolute inset-0 bg-dot-grid opacity-90" />
 
       {/* Vertical blueprint guides — match metrics outward spacing */}
-      <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-primary/10" />
-      <div className="absolute inset-y-0 left-[max(0px,calc(50%-40rem))] w-px bg-primary/15" />
-      <div className="absolute inset-y-0 right-[max(0px,calc(50%-40rem))] w-px bg-primary/15" />
+      <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-primary/22" />
+      <div className="absolute inset-y-0 left-[max(0px,calc(50%-40rem))] w-px bg-primary/28" />
+      <div className="absolute inset-y-0 right-[max(0px,calc(50%-40rem))] w-px bg-primary/28" />
     </div>
   );
 }

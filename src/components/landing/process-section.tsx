@@ -1,128 +1,459 @@
 "use client";
 
-import { Clock, ListChecks, Radar, Shield } from "lucide-react";
+import * as React from "react";
+import {
+  ChevronRight,
+  Crosshair,
+  FileCheck,
+  Search,
+  Wrench,
+} from "lucide-react";
 
 import { SectionRule } from "@/components/landing/blueprint";
+import { InsetGrainient } from "@/components/landing/inset-grainient";
+import { TechLabel } from "@/components/landing/tech-label";
+import { cn } from "@/lib/utils";
 
-const steps = [
-  { id: "01", label: "Detect", color: "bg-primary" },
-  { id: "02", label: "Test", color: "bg-violet-500" },
-  { id: "03", label: "Fix", color: "bg-fuchsia-500" },
-  { id: "04", label: "Verify", color: "bg-indigo-500" },
-];
+const stages = [
+  {
+    id: "discover",
+    label: "Discover",
+    icon: Search,
+    subheading: "Discover what's exposed before attackers do by:",
+    points: [
+      {
+        title: "Discovering All Your Internet Facing Assets Before Attackers",
+      },
+      {
+        title:
+          "Identifying Shadow IT & Unknown Cloud Services Before They Create Risk",
+      },
+      {
+        title: "Finding Leaked or Exposed Data Before It Causes Damage",
+      },
+    ],
+  },
+  {
+    id: "detect",
+    label: "Detect",
+    icon: Crosshair,
+    subheading: "Continuously detect new risks as your business changes by:",
+    points: [
+      {
+        title: "Detect New Vulnerabilities as They Appear",
+        body: "Continuously monitor your systems for newly discovered weaknesses so issues are caught early.",
+      },
+      {
+        title:
+          "Detect Vendor & Third-Party Cyber Risks Before They Impact Your Business",
+        body: "Check your suppliers' and partners' exposure to prevent risks from flowing into your organisation.",
+      },
+      {
+        title:
+          "Detect Cloud & Application Misconfigurations Before They Become Incidents",
+        body: "Identify unsafe settings or risky access permissions that could open the door to attackers.",
+      },
+    ],
+  },
+  {
+    id: "test",
+    label: "Test",
+    icon: FileCheck,
+    subheading:
+      "Continuously test your security like a real attacker would by:",
+    points: [
+      {
+        title: "Test Your Systems Like a Real Attacker, Not a Checklist",
+        body: "Simulate safe but realistic attacks to show how hackers would enter and what damage they could do.",
+      },
+      {
+        title:
+          "Validate Which Vulnerabilities Actually Matter to Your Business",
+        body: "Instead of overwhelming lists, Purplelens shows which issues can truly be exploited — helping your team focus.",
+      },
+      {
+        title: "Validate That Your Security Controls Actually Work",
+        body: "Confirm that your firewalls, endpoint tools, and security configurations are working as expected.",
+      },
+    ],
+  },
+  {
+    id: "fix",
+    label: "Fix",
+    icon: Wrench,
+    subheading:
+      "Continuously fix faster with clear, evidence-based guidance by:",
+    points: [
+      {
+        title: "Get Clear, Non-Technical Guidance on What to Fix First",
+        body: "Purplelens provides prioritized, easy-to-understand steps based on real exploit evidence.",
+      },
+      {
+        title: "Evidence Based Remediation Reports That Prove Risk Is Fixed",
+        body: "Visual proof (like screenshots, attack paths, and examples) helps IT teams quickly understand the issue.",
+      },
+      {
+        title: "Track Progress with a Simple Risk Dashboard",
+        body: "See risk levels go down as fixes are applied — no jargon, just a clear picture of improvement.",
+      },
+      {
+        title: "Compliance-Ready Reporting",
+        body: "Generate clean, audit-ready reports for customers, partners, or certification needs.",
+      },
+    ],
+  },
+] as const;
 
-const features = [
-  {
-    icon: Radar,
-    title: "Always-on discovery",
-    body: "Map assets and exposures as your stack changes.",
-  },
-  {
-    icon: Shield,
-    title: "Exploit-first testing",
-    body: "Validate impact with safe, controlled exploitation.",
-  },
-  {
-    icon: ListChecks,
-    title: "Guided remediation",
-    body: "Turn findings into prioritized, actionable fixes.",
-  },
-  {
-    icon: Clock,
-    title: "Continuous verification",
-    body: "Confirm fixes and watch for regressions automatically.",
-  },
-];
+function handwrittenPath(points: { x: number; y: number }[]) {
+  if (points.length < 2) return "";
+  let d = `M ${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)}`;
+  for (let i = 0; i < points.length - 1; i++) {
+    const p0 = points[i === 0 ? 0 : i - 1];
+    const p1 = points[i];
+    const p2 = points[i + 1];
+    const p3 = points[Math.min(points.length - 1, i + 2)];
+    const c1x = p1.x + (p2.x - p0.x) / 6;
+    const c1y = p1.y + (p2.y - p0.y) / 6;
+    const c2x = p2.x - (p3.x - p1.x) / 6;
+    const c2y = p2.y - (p3.y - p1.y) / 6;
+    d += ` C ${c1x.toFixed(1)} ${c1y.toFixed(1)}, ${c2x.toFixed(1)} ${c2y.toFixed(1)}, ${p2.x.toFixed(1)} ${p2.y.toFixed(1)}`;
+  }
+  return d;
+}
 
-export function ProcessSection() {
+function returnInkPoints(sx: number, sy: number, ex: number, ey: number) {
+  const steps = 22;
+  const points: { x: number; y: number }[] = [];
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps;
+    const rise = 1 - t;
+    const sweep = Math.sin(t * Math.PI);
+    const x =
+      sx +
+      (ex - sx) * t -
+      sweep * 38 +
+      Math.sin(t * 6.2 + 0.4) * 3.4 * sweep +
+      Math.sin(t * 2.7 + 1.6) * 1.8;
+    const y =
+      sy +
+      (ey - sy) * (t * t * (3 - 2 * t)) +
+      Math.sin(t * 4.8 + 0.3) * 5.5 * sweep +
+      Math.sin(t * 2.2 + 2.0) * 2.4 * rise;
+    points.push({ x, y });
+  }
+  points[0] = { x: sx, y: sy };
+  points[points.length - 1] = { x: ex, y: ey };
+  return points;
+}
+
+function arrowFlicks(from: { x: number; y: number }, tip: { x: number; y: number }) {
+  const ang = Math.atan2(tip.y - from.y, tip.x - from.x);
+  const wing = (spread: number, len: number, bend: number) => {
+    const a = ang + spread;
+    const mx = tip.x + Math.cos(a) * len * 0.42 + Math.cos(a + bend) * 3;
+    const my = tip.y + Math.sin(a) * len * 0.42 + Math.sin(a + bend) * 3;
+    const tx = tip.x + Math.cos(a) * len;
+    const ty = tip.y + Math.sin(a) * len;
+    return `M ${tip.x.toFixed(1)} ${tip.y.toFixed(1)} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${tx.toFixed(1)} ${ty.toFixed(1)}`;
+  };
+  return `${wing(2.52, 22, 0.18)} ${wing(-2.38, 19, -0.22)}`;
+}
+
+function SketchDownArrow() {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 36 44"
+      className="mx-auto h-11 w-9 text-primary-foreground/80"
+      fill="none"
+    >
+      <path
+        d="M18.1 1.6 C 16.2 8.4, 20.8 12.2, 17.6 19.4 C 14.8 26.2, 20.4 30.1, 18.8 38.6"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M18.8 38.6 Q 14.2 34.8 9.6 32.2 M18.8 38.6 Q 24.4 34.1 29.2 31.4"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function SketchReturn({
+  start,
+  end,
+  size,
+}: {
+  start: { x: number; y: number };
+  end: { x: number; y: number };
+  size: { w: number; h: number };
+}) {
+  if (size.w < 8 || size.h < 8) return null;
+
+  const points = returnInkPoints(start.x, start.y, end.x, end.y);
+  const d = handwrittenPath(points);
+  const prev = points[Math.max(0, points.length - 3)];
+  const flicks = arrowFlicks(prev, end);
+
+  return (
+    <svg
+      aria-hidden
+      viewBox={`0 0 ${size.w} ${size.h}`}
+      width={size.w}
+      height={size.h}
+      className="pointer-events-none absolute top-0 left-0 hidden text-primary-foreground/80 sm:block"
+      fill="none"
+    >
+      <path
+        d={d}
+        stroke="currentColor"
+        strokeWidth="1.55"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d={flicks}
+        stroke="currentColor"
+        strokeWidth="1.55"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function ProcessFlow({
+  showHeading = false,
+  includeHero = false,
+}: {
+  showHeading?: boolean;
+  includeHero?: boolean;
+}) {
+  const wrapRef = React.useRef<HTMLDivElement>(null);
+  const discoverHeadRef = React.useRef<HTMLSpanElement>(null);
+  const fixHeadRef = React.useRef<HTMLSpanElement>(null);
+  const [active, setActive] = React.useState(0);
+  const [paused, setPaused] = React.useState(false);
+  const [loop, setLoop] = React.useState<{
+    start: { x: number; y: number };
+    end: { x: number; y: number };
+    size: { w: number; h: number };
+  } | null>(null);
+
+  React.useEffect(() => {
+    if (paused) return;
+    const id = window.setInterval(() => {
+      setActive((current) => (current + 1) % stages.length);
+    }, 5200);
+    return () => window.clearInterval(id);
+  }, [paused]);
+
+  React.useLayoutEffect(() => {
+    const wrap = wrapRef.current;
+    const discover = discoverHeadRef.current;
+    const fix = fixHeadRef.current;
+    if (!wrap || !discover || !fix) return;
+
+    const measure = () => {
+      const box = wrap.getBoundingClientRect();
+      const d = discover.getBoundingClientRect();
+      const f = fix.getBoundingClientRect();
+      setLoop({
+        size: { w: box.width, h: box.height },
+        start: {
+          x: f.left - box.left,
+          y: f.top - box.top + f.height / 2,
+        },
+        end: {
+          x: d.left - box.left,
+          y: d.top - box.top + d.height / 2,
+        },
+      });
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(wrap);
+    observer.observe(discover);
+    observer.observe(fix);
+    window.addEventListener("resize", measure);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [active]);
+
   return (
     <section
       id="process"
-      className="relative border-y border-hairline py-24 lg:py-32"
+      className={cn(
+        "relative overflow-hidden text-primary-foreground",
+        includeHero
+          ? "-mt-px pb-20 pt-0 lg:pb-28"
+          : "border-y border-hairline py-12 sm:py-16 lg:py-24"
+      )}
     >
-      <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 lg:grid-cols-2">
-        {/* Clean playful loop */}
-        <div className="relative mx-auto aspect-square w-full max-w-md">
-          <div
-            aria-hidden
-            className="absolute inset-[18%] rounded-full bg-primary/10 blur-2xl"
-          />
-
-          {/* Orbit track */}
-          <div className="absolute inset-[12%] rounded-full border-2 border-primary/20" />
-          <div className="absolute inset-[12%] animate-[spin_22s_linear_infinite] rounded-full">
-            <span className="absolute top-0 left-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary shadow-[0_0_16px_rgba(92,60,180,0.7)]" />
-          </div>
-
-          {/* Center pill */}
-          <div className="absolute inset-[30%] z-10 flex flex-col items-center justify-center rounded-full bg-primary text-center text-primary-foreground shadow-lg shadow-primary/30">
-            <span className="font-tech text-[10px] tracking-[0.18em] text-primary-foreground/70 uppercase">
-              Always on
-            </span>
-            <span className="mt-1 text-sm font-medium tracking-tight">
-              Continuous
-            </span>
-          </div>
-
-          {/* Four clean step chips */}
-          {steps.map((step, i) => {
-            const angle = -90 + i * 90;
-            const rad = (angle * Math.PI) / 180;
-            const x = 50 + Math.cos(rad) * 42;
-            const y = 50 + Math.sin(rad) * 42;
-            return (
-              <div
-                key={step.id}
-                className="absolute z-20 -translate-x-1/2 -translate-y-1/2"
-                style={{ left: `${x}%`, top: `${y}%` }}
-              >
-                <div className="flex items-center gap-2 border border-hairline bg-background px-3 py-2 shadow-sm">
-                  <span className={`size-2 shrink-0 rounded-full ${step.color}`} />
-                  <div className="flex flex-col">
-                    <span className="font-tech text-[9px] tracking-[0.14em] text-muted-foreground">
-                      {step.id}
-                    </span>
-                    <span className="text-xs font-medium text-foreground">
-                      {step.label}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="flex flex-col gap-8">
-          <div className="flex flex-col gap-5">
-            <SectionRule step="05" label="Our approach" />
-            <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">
-              Continuous Testing, Not One-Time Assessments
-            </h2>
-            <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-              A living feedback loop — detect, prove, fix, verify — that never
-              waits for the next scheduled engagement.
+      <InsetGrainient
+        wash={includeHero ? "hero" : "metrics"}
+        className="overflow-hidden"
+      />
+      {includeHero ? (
+        <div
+          className="pointer-events-none absolute top-0 right-[max(0px,calc(50%-40rem))] left-[max(0px,calc(50%-40rem))] h-px bg-white/70"
+          aria-hidden
+        />
+      ) : null}
+      <div
+        className={cn(
+          "relative z-10 mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:gap-12 sm:px-6",
+          includeHero && "pt-16 sm:pt-20 lg:pt-28"
+        )}
+      >
+        {includeHero ? (
+          <div className="flex max-w-2xl flex-col gap-5">
+            <TechLabel className="text-primary-foreground/75">
+              [ Our Process ]
+            </TechLabel>
+            <h1 className="text-3xl font-medium leading-[1.08] tracking-tight sm:text-5xl">
+              Our Process
+            </h1>
+            <p className="text-base leading-relaxed text-primary-foreground/85 sm:text-lg">
+              Discover, detect, test, and fix — then start again. The cycle
+              never stops, so exposure windows stay closed as your environment
+              changes.
             </p>
           </div>
-          <ul className="flex flex-col gap-0 divide-y divide-[color:var(--border-hairline)] border-y border-hairline">
-            {features.map((item, i) => (
-              <li key={item.title} className="flex gap-4 py-5">
-                <span className="flex size-9 shrink-0 items-center justify-center border border-hairline text-primary">
-                  <item.icon className="size-4" />
-                </span>
-                <div className="flex min-w-0 flex-1 flex-col gap-1">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <h3 className="font-medium">{item.title}</h3>
-                    <span className="font-tech text-[10px] text-muted-foreground">
-                      0{i + 1}
+        ) : null}
+        {showHeading ? (
+          <div className="flex flex-col gap-5">
+            <SectionRule
+              step="05"
+              label="Our Process"
+              className="[&_span]:text-primary-foreground/70"
+              lineClassName="bg-primary-foreground/42"
+            />
+            <h2 className="text-2xl font-medium tracking-tight sm:text-4xl">
+              Our Process
+            </h2>
+            <p className="max-w-2xl text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
+              Discover, detect, test, and fix — then start again. The cycle
+              never stops, so exposure windows stay closed as your environment
+              changes.
+            </p>
+          </div>
+        ) : null}
+
+        <div
+          ref={wrapRef}
+          className="relative mx-auto w-full max-w-3xl overflow-visible sm:pl-8 lg:pl-10"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          {loop ? (
+            <SketchReturn
+              start={loop.start}
+              end={loop.end}
+              size={loop.size}
+            />
+          ) : null}
+
+          <div className="flex flex-col">
+            {stages.map((item, index) => {
+              const Icon = item.icon;
+              const isActive = index === active;
+              return (
+                <div key={item.id} className="flex flex-col">
+                  <button
+                    type="button"
+                    onClick={() => setActive(index)}
+                    className={cn(
+                      "relative flex w-full flex-col border text-left backdrop-blur-md transition-colors",
+                      isActive
+                        ? "border-white/60 bg-white/16 text-primary-foreground shadow-[0_0_40px_-16px_rgba(255,255,255,0.35)]"
+                        : "border-white/38 bg-white/8 text-primary-foreground/85 hover:bg-white/12"
+                    )}
+                  >
+                    <span className="pointer-events-none absolute top-0 left-0 size-2.5 border-t border-l border-white/75" />
+                    <span className="pointer-events-none absolute top-0 right-0 size-2.5 border-t border-r border-white/75" />
+                    <span className="pointer-events-none absolute bottom-0 left-0 size-2.5 border-b border-l border-white/75" />
+                    <span className="pointer-events-none absolute right-0 bottom-0 size-2.5 border-r border-b border-white/75" />
+                    <span
+                      ref={
+                        index === 0
+                          ? discoverHeadRef
+                          : index === stages.length - 1
+                            ? fixHeadRef
+                            : undefined
+                      }
+                      className="flex w-full min-h-11 items-center gap-3 px-4 py-3.5"
+                    >
+                      <span
+                        className={cn(
+                          "flex size-9 items-center justify-center border",
+                          isActive
+                            ? "border-white/55 bg-white/10"
+                            : "border-white/38 bg-white/5"
+                        )}
+                      >
+                        <Icon />
+                      </span>
+                      <span className="flex-1 text-sm font-medium">
+                        {item.label}
+                      </span>
+                      <span className="font-tech text-[10px] tracking-[0.14em] text-primary-foreground/55">
+                        0{index + 1}
+                      </span>
+                      <ChevronRight data-icon="inline-end" />
                     </span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{item.body}</p>
+                    {isActive ? (
+                      <span className="flex flex-col gap-4 border-t border-white/28 px-4 py-5 sm:px-6">
+                        <span className="text-sm font-medium leading-relaxed sm:text-base">
+                          {item.subheading}
+                        </span>
+                        <ul className="flex flex-col gap-4">
+                          {item.points.map((point) => (
+                            <li key={point.title} className="flex gap-3">
+                              <span
+                                aria-hidden
+                                className="mt-2 size-1.5 shrink-0 rounded-full bg-primary-foreground/80"
+                              />
+                              <span className="flex flex-col gap-1">
+                                <span className="text-sm font-medium">
+                                  {point.title}
+                                </span>
+                                {"body" in point && point.body ? (
+                                  <span className="text-sm leading-relaxed text-primary-foreground/75">
+                                    {point.body}
+                                  </span>
+                                ) : null}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </span>
+                    ) : null}
+                  </button>
+                  {index < stages.length - 1 ? (
+                    <div aria-hidden className="flex justify-center py-1">
+                      <SketchDownArrow />
+                    </div>
+                  ) : null}
                 </div>
-              </li>
-            ))}
-          </ul>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
   );
+}
+
+export function ProcessSection() {
+  return <ProcessFlow showHeading />;
 }

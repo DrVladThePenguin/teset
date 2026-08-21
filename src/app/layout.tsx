@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Mozilla_Text, Space_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -7,6 +7,7 @@ const mozillaText = Mozilla_Text({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700"],
   display: "swap",
+  adjustFontFallback: false,
 });
 
 const spaceMono = Space_Mono({
@@ -27,6 +28,12 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-icon.png", type: "image/png" }],
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

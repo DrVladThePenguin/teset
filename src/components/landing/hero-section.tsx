@@ -45,7 +45,7 @@ function MacWindow({
   title?: string;
 }) {
   return (
-    <div className="overflow-hidden rounded-xl border border-white/25 bg-[#1c1c1e] shadow-[0_40px_100px_-30px_rgba(20,10,50,0.65)]">
+    <div className="overflow-hidden rounded-xl border border-white/42 bg-[#1c1c1e] shadow-[0_40px_100px_-30px_rgba(20,10,50,0.65)]">
       {/* macOS title bar */}
       <div className="relative flex h-11 items-center border-b border-white/10 bg-[#2a2a2c] px-4">
         <div className="flex items-center gap-2">
@@ -78,17 +78,17 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-[#2d1b6e]/40 to-[#2d1b6e]/55" />
 
         {/* Horizontal dividers at annotated height */}
-        <div className="absolute top-0 right-0 left-0 h-px bg-white/45" />
+        <div className="absolute top-0 right-0 left-0 h-px bg-white/70" />
         <div className="absolute top-0 left-0 h-px w-16 bg-white/80 sm:w-24" />
         <div className="absolute top-0 right-0 h-px w-16 bg-white/80 sm:w-24" />
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center gap-6 px-6 pt-20 text-center sm:pt-24 lg:pt-32">
+      <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center gap-5 px-4 pt-16 text-center sm:gap-6 sm:px-6 sm:pt-24 lg:pt-32">
         <TechLabel className="text-primary-foreground/75">
           [ Next-gen AI red teaming ]
         </TechLabel>
 
-        <h1 className="text-4xl font-medium leading-[1.08] tracking-tight text-primary-foreground sm:text-5xl lg:text-[3.4rem]">
+        <h1 className="text-3xl font-medium leading-[1.08] tracking-tight text-primary-foreground sm:text-5xl lg:text-[3.4rem]">
           Cybersecurity for <span className="text-white">AI Velocity</span>
         </h1>
 
@@ -97,11 +97,11 @@ export function HeroSection() {
           exploitability at the speed your AI-driven teams ship.
         </p>
 
-        <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-2 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
           <Button
             size="lg"
             variant="secondary"
-            className="h-11 rounded-full px-6 text-base"
+            className="h-11 w-full rounded-full px-6 text-base sm:w-auto"
             render={<a href="#demo" />}
             nativeButton={false}
           >
@@ -110,7 +110,7 @@ export function HeroSection() {
           <Button
             size="lg"
             variant="outline"
-            className="h-11 rounded-full border-primary-foreground/45 bg-white/10 px-5 text-base text-primary-foreground backdrop-blur-sm hover:bg-white/20 hover:text-primary-foreground"
+            className="h-11 w-full rounded-full border-primary-foreground/45 bg-white/10 px-5 text-base text-primary-foreground backdrop-blur-sm hover:bg-white/20 hover:text-primary-foreground sm:w-auto"
             render={<a href="#process" />}
             nativeButton={false}
           >
@@ -120,7 +120,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto mt-14 max-w-3xl px-6 lg:mt-16">
+      <div className="relative z-10 mx-auto mt-10 max-w-3xl px-4 sm:mt-14 sm:px-6 lg:mt-16">
         <MacWindow>
           <Image
             src="/images/dashboard-preview.png"

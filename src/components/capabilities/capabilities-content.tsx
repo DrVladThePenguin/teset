@@ -164,7 +164,7 @@ export function CapabilitiesHero() {
     <section className="relative -mt-px overflow-hidden pb-16 pt-0 text-primary-foreground lg:pb-20">
       <InsetGrainient wash="hero" className="overflow-hidden" />
       <div
-        className="pointer-events-none absolute top-0 right-[max(0px,calc(50%-40rem))] left-[max(0px,calc(50%-40rem))] h-px bg-white/45"
+        className="pointer-events-none absolute top-0 right-[max(0px,calc(50%-40rem))] left-[max(0px,calc(50%-40rem))] h-px bg-white/70"
         aria-hidden
       />
       <div
@@ -176,11 +176,11 @@ export function CapabilitiesHero() {
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center gap-6 px-6 pt-20 text-center sm:pt-24 lg:pt-32">
+      <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 pt-16 text-center sm:px-6 sm:pt-24 lg:pt-32">
         <TechLabel className="text-primary-foreground/75">
           [ Capabilities ]
         </TechLabel>
-        <h1 className="text-4xl font-medium leading-[1.08] tracking-tight text-primary-foreground sm:text-5xl lg:text-[3.4rem]">
+        <h1 className="text-3xl font-medium leading-[1.08] tracking-tight text-primary-foreground sm:text-5xl lg:text-[3.4rem]">
           Where Intelligence Meets Security
         </h1>
         <p className="max-w-xl text-base leading-relaxed text-primary-foreground/85 sm:text-lg">
@@ -217,7 +217,7 @@ export function CapabilitiesHero() {
 export function CapabilitiesIndex() {
   return (
     <section className="relative py-10 lg:py-12">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-px border border-hairline bg-border-hairline sm:grid-cols-2 lg:grid-cols-5">
           {capabilities.map((item) => (
             <a
@@ -254,17 +254,17 @@ function GrainientCapability({
   return (
     <section
       id={item.id}
-      className="relative scroll-mt-24 overflow-hidden border-y border-hairline py-24 text-primary-foreground lg:py-28"
+      className="relative scroll-mt-24 overflow-hidden border-y border-hairline py-16 text-primary-foreground sm:py-24 lg:py-28"
     >
       <InsetGrainient wash="metrics" />
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12 px-6">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12 px-4 sm:px-6">
         <div className="grid items-start gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
           <div className="flex max-w-3xl flex-col gap-5">
             <SectionRule
               step={item.step}
               label={item.label}
               className="[&_span]:text-primary-foreground/70"
-              lineClassName="bg-primary-foreground/25"
+              lineClassName="bg-primary-foreground/42"
             />
             <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">
               {item.title}
@@ -279,7 +279,7 @@ function GrainientCapability({
         </div>
 
         <div
-          className={`grid gap-px border border-primary-foreground/20 bg-primary-foreground/20 ${cols}`}
+          className={`grid gap-px border border-primary-foreground/32 bg-primary-foreground/32 ${cols}`}
         >
           {item.bullets.map((bullet) => (
             <div
@@ -318,10 +318,10 @@ function LightCapability({
   return (
     <section
       id={item.id}
-      className="relative scroll-mt-24 py-24 lg:py-32"
+      className="relative scroll-mt-24 py-16 sm:py-24 lg:py-32"
     >
       <div
-        className={`mx-auto grid max-w-6xl items-center gap-14 px-6 lg:grid-cols-2 lg:gap-20 ${
+        className={`mx-auto grid max-w-6xl items-center gap-10 px-4 sm:gap-14 sm:px-6 lg:grid-cols-2 lg:gap-20 ${
           reverse ? "lg:[&>*:first-child]:order-2" : ""
         }`}
       >

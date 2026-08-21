@@ -17,10 +17,10 @@ export function BlueprintFrame({
         className
       )}
     >
-      <span className="pointer-events-none absolute top-0 left-0 size-3 border-t-2 border-l-2 border-primary/70" />
-      <span className="pointer-events-none absolute top-0 right-0 size-3 border-t-2 border-r-2 border-primary/70" />
-      <span className="pointer-events-none absolute bottom-0 left-0 size-3 border-b-2 border-l-2 border-primary/70" />
-      <span className="pointer-events-none absolute right-0 bottom-0 size-3 border-r-2 border-b-2 border-primary/70" />
+      <span className="pointer-events-none absolute top-0 left-0 size-3 border-t-2 border-l-2 border-primary/90" />
+      <span className="pointer-events-none absolute top-0 right-0 size-3 border-t-2 border-r-2 border-primary/90" />
+      <span className="pointer-events-none absolute bottom-0 left-0 size-3 border-b-2 border-l-2 border-primary/90" />
+      <span className="pointer-events-none absolute right-0 bottom-0 size-3 border-r-2 border-b-2 border-primary/90" />
 
       {label ? (
         <span className="font-tech absolute -top-2.5 left-3 bg-background px-1.5 text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
@@ -61,7 +61,7 @@ export function SectionRule({
           ) : null}
         </div>
       )}
-      <div className={cn("h-px flex-1 bg-primary/25", lineClassName)} />
+      <div className={cn("h-px flex-1 bg-primary/45", lineClassName)} />
     </div>
   );
 }

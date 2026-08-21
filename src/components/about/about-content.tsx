@@ -35,7 +35,7 @@ const missions = [
 
 const founders = [
   {
-    name: "Praveen Nottani",
+    name: "Praveen Nettimi",
     title: "Founder & CEO",
     step: "03A",
     image: "/images/founders/praveen.png",
@@ -43,12 +43,12 @@ const founders = [
     bio: "Praveen is a highly experienced cybersecurity professional with over 15 years of experience in the field. He has a deep understanding of the cybersecurity landscape and is passionate about helping businesses protect their data and assets. He has worked with a variety of businesses, from startups to large enterprises, and has helped them improve their security posture and defend against cyberattacks.",
   },
   {
-    name: "Diwakar Prayaga",
+    name: "Divakar Prayaga",
     title: "Founder & COO",
     step: "03B",
     image: "/images/founders/diwakar.png",
     linkedin: "https://www.linkedin.com/in/divakarprayaga",
-    bio: "Diwakar Prayaga brings over 18 years of experience in leading and scaling cybersecurity and risk management portfolios. He has held several key leadership roles at global high-growth organizations. With a track record of building and leading successful security strategy and risk functions across diverse industries, including banking, technology, fintech, and e-commerce, he is well-equipped to lead PurpleLens. Diwakar is strongly committed to community and mentors startups through various incubators helping them build cybersecurity strategy from nascent stages.",
+    bio: "Divakar Prayaga brings over 18 years of experience in leading and scaling cybersecurity and risk management portfolios. He has held several key leadership roles at global high-growth organizations. With a track record of building and leading successful security strategy and risk functions across diverse industries, including banking, technology, fintech, and e-commerce, he is well-equipped to lead PurpleLens. Divakar is strongly committed to community and mentors startups through various incubators helping them build cybersecurity strategy from nascent stages.",
   },
 ];
 
@@ -80,7 +80,7 @@ export function AboutHero() {
     <section className="relative -mt-px overflow-visible pb-16 pt-0 text-primary-foreground lg:pb-20">
       <InsetGrainient wash="hero" className="overflow-hidden" />
       <div
-        className="pointer-events-none absolute top-0 right-[max(0px,calc(50%-40rem))] left-[max(0px,calc(50%-40rem))] h-px bg-white/45"
+        className="pointer-events-none absolute top-0 right-[max(0px,calc(50%-40rem))] left-[max(0px,calc(50%-40rem))] h-px bg-white/70"
         aria-hidden
       />
       <div
@@ -92,15 +92,15 @@ export function AboutHero() {
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto max-w-3xl px-6 pt-20 sm:pt-24 lg:pt-32">
-        <div className="relative border border-white/25 bg-white/5 px-8 py-10 backdrop-blur-[2px] sm:px-12 sm:py-12">
+      <div className="relative z-10 mx-auto max-w-3xl px-4 pt-16 sm:px-6 sm:pt-24 lg:pt-32">
+        <div className="relative border border-white/42 bg-white/5 px-8 py-10 backdrop-blur-[2px] sm:px-12 sm:py-12">
           <Tape side="left" />
           <Tape side="right" />
           <div className="flex flex-col items-center gap-6 text-center">
             <TechLabel className="text-primary-foreground/75">
               [ About PurpleLens ]
             </TechLabel>
-            <h1 className="text-4xl font-medium leading-[1.08] tracking-tight text-primary-foreground sm:text-5xl lg:text-[3.4rem]">
+            <h1 className="text-3xl font-medium leading-[1.08] tracking-tight text-primary-foreground sm:text-5xl lg:text-[3.4rem]">
               We Hunt Threats So You Don’t Have To
             </h1>
             <p className="max-w-2xl text-base leading-relaxed text-primary-foreground/85 sm:text-lg">
@@ -131,20 +131,20 @@ export function AboutVision() {
     <GlassHedgehogScout />
     <section
       id="vision"
-      className="relative overflow-hidden border-y border-hairline py-24 text-primary-foreground lg:py-28"
+      className="relative overflow-hidden border-y border-hairline py-16 text-primary-foreground sm:py-24 lg:py-28"
     >
       <InsetGrainient wash="metrics" />
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-8 px-6">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6">
         <SectionRule
           step="01"
           label="Our Vision"
           className="[&_span]:text-primary-foreground/70"
-          lineClassName="bg-primary-foreground/25"
+          lineClassName="bg-primary-foreground/42"
         />
         <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">
           Our Vision
         </h2>
-        <div className="grid gap-px border border-primary-foreground/20 bg-primary-foreground/20 lg:grid-cols-1">
+        <div className="grid gap-px border border-primary-foreground/32 bg-primary-foreground/32 lg:grid-cols-1">
           <div className="flex flex-col gap-3 bg-black/25 p-6 backdrop-blur-[2px] sm:p-8">
             <span className="font-tech text-[10px] tracking-[0.14em] text-primary-foreground/55">
               01A
@@ -174,8 +174,8 @@ export function AboutVision() {
 
 export function AboutMission() {
   return (
-    <section id="mission" className="relative py-24 lg:py-32">
-      <div className="mx-auto flex max-w-6xl flex-col gap-14 px-6">
+    <section id="mission" className="relative py-16 sm:py-24 lg:py-32">
+      <div className="mx-auto flex max-w-6xl flex-col gap-14 px-4 sm:px-6">
         <div className="flex flex-col gap-6">
           <SectionRule step="02" label="Our Mission" />
           <h2 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
@@ -217,27 +217,27 @@ export function AboutFounders() {
   return (
     <section
       id="founders"
-      className="relative overflow-hidden border-y border-hairline py-24 text-primary-foreground lg:py-28"
+      className="relative overflow-hidden border-y border-hairline py-16 text-primary-foreground sm:py-24 lg:py-28"
     >
       <InsetGrainient wash="metrics" />
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12 px-6">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12 px-4 sm:px-6">
         <div className="flex flex-col gap-5">
           <SectionRule
             step="03"
             label="Leadership"
             className="[&_span]:text-primary-foreground/70"
-            lineClassName="bg-primary-foreground/25"
+            lineClassName="bg-primary-foreground/42"
           />
           <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">
             Meet Our Founders
           </h2>
         </div>
 
-        <div className="grid gap-px border border-primary-foreground/20 bg-primary-foreground/20 lg:grid-cols-2">
+        <div className="grid gap-px border border-primary-foreground/32 bg-primary-foreground/32 lg:grid-cols-2">
           {founders.map((founder) => (
             <div
               key={founder.name}
-              className="flex flex-col gap-6 bg-black/25 p-6 backdrop-blur-[2px] sm:p-8"
+              className="flex flex-col gap-6 bg-black/25 p-4 backdrop-blur-[2px] sm:p-8"
             >
               <div className="flex items-start justify-between gap-4">
                 <span className="font-tech text-[10px] tracking-[0.14em] text-primary-foreground/55">

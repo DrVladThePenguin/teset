@@ -69,13 +69,13 @@
   --accent: oklch(0.94 0.03 290);
   --accent-foreground: oklch(0.32 0.1 290);
   --destructive: oklch(0.55 0.22 25);
-  --border: oklch(0.9 0.02 290);
-  --input: oklch(0.9 0.02 290);
+  --border: oklch(0.82 0.035 290);
+  --input: oklch(0.82 0.035 290);
   --ring: oklch(0.45 0.18 290);
   --brand: oklch(0.45 0.18 290);
   --brand-foreground: oklch(0.99 0.01 290);
   --surface: oklch(0.965 0.012 290);
-  --border-hairline: oklch(0.42 0.14 290 / 0.32);
+  --border-hairline: oklch(0.38 0.16 290 / 0.5);
   --chart-1: oklch(0.55 0.2 290);
   --chart-2: oklch(0.65 0.12 300);
   --chart-3: oklch(0.45 0.15 280);
@@ -114,7 +114,7 @@
   --brand: oklch(0.65 0.18 290);
   --brand-foreground: oklch(0.16 0.03 290);
   --surface: oklch(0.22 0.04 290);
-  --border-hairline: oklch(0.85 0.04 290 / 0.16);
+  --border-hairline: oklch(0.9 0.05 290 / 0.3);
   --chart-1: oklch(0.65 0.18 290);
   --chart-2: oklch(0.7 0.12 300);
   --chart-3: oklch(0.55 0.15 280);
@@ -134,11 +134,12 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply font-sans scroll-smooth overflow-x-clip;
+    -webkit-text-size-adjust: 100%;
+  }
   body {
     @apply bg-background text-foreground font-sans antialiased;
-  }
-  html {
-    @apply font-sans scroll-smooth;
   }
   h1,
   h2,
@@ -158,8 +159,8 @@
   /* Architectural CAD dot grid */
   .bg-dot-grid {
     background-image: radial-gradient(
-      oklch(0.42 0.14 290 / 0.28) 0.85px,
-      transparent 0.85px
+      oklch(0.38 0.16 290 / 0.42) 1px,
+      transparent 1px
     );
     background-size: 20px 20px;
     background-position: 0 0;
@@ -179,15 +180,15 @@
       linear-gradient(
         135deg,
         transparent 49.2%,
-        oklch(0.42 0.14 290 / 0.22) 49.2%,
-        oklch(0.42 0.14 290 / 0.22) 50.8%,
+        oklch(0.38 0.16 290 / 0.36) 49.2%,
+        oklch(0.38 0.16 290 / 0.36) 50.8%,
         transparent 50.8%
       ),
       linear-gradient(
         45deg,
         transparent 49.2%,
-        oklch(0.42 0.14 290 / 0.22) 49.2%,
-        oklch(0.42 0.14 290 / 0.22) 50.8%,
+        oklch(0.38 0.16 290 / 0.36) 49.2%,
+        oklch(0.38 0.16 290 / 0.36) 50.8%,
         transparent 50.8%
       );
   }
@@ -588,4 +589,5 @@
   .fs-bug-8 {
     animation: fs-bug-8 2.6s ease-in-out 0.55s infinite;
   }
+
 }

@@ -45,7 +45,7 @@ export function Logo({
             priority
             aria-hidden
           />
-          <span className="text-[15px] font-medium tracking-tight text-foreground">
+          <span className="hidden text-[15px] font-medium tracking-tight text-foreground min-[380px]:inline">
             {logo.wordmark}
           </span>
         </>
@@ -55,7 +55,7 @@ export function Logo({
           alt={logo.alt}
           width={logo.width}
           height={logo.height}
-          className="h-8 w-auto"
+          className="h-8 w-auto max-w-[min(100%,14rem)]"
         />
       )}
     </a>

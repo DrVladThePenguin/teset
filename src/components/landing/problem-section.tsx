@@ -28,8 +28,8 @@ const problems = [
 
 export function ProblemSection() {
   return (
-    <section id="solutions" className="relative py-24 lg:py-32">
-      <div className="mx-auto flex max-w-6xl flex-col gap-14 px-6">
+    <section id="solutions" className="relative py-16 sm:py-24 lg:py-32">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 sm:gap-14 sm:px-6">
         <div className="flex flex-col gap-6">
           <SectionRule step="02" label="The problem" />
           <div className="max-w-3xl">

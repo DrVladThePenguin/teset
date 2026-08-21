@@ -46,8 +46,8 @@ const columns = [
 
 export function SiteFooter() {
   return (
-    <footer id="careers" className="border-t border-primary-foreground/10 bg-[#2d1f5c] text-primary-foreground">
-      <div className="mx-auto max-w-6xl px-6 py-16">
+    <footer id="careers" className="border-t border-primary-foreground/22 bg-[#2d1f5c] text-primary-foreground">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
           <div className="flex flex-col gap-4">
             <Logo variant="footer" />
@@ -82,7 +82,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <Separator className="my-10 bg-primary-foreground/15" />
+        <Separator className="my-10 bg-primary-foreground/28" />
 
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <p className="font-tech text-[11px] text-primary-foreground/55">

@@ -10,7 +10,7 @@ export function DashboardMock() {
           <span className="size-2 border border-hairline bg-chart-4" />
           <span className="size-2 border border-hairline bg-primary/70" />
         </div>
-        <p className="font-tech text-[10px] tracking-[0.14em] text-muted-foreground uppercase">
+        <p className="hidden font-tech text-[10px] tracking-[0.14em] text-muted-foreground uppercase sm:block">
           purplelens://attack-surface
         </p>
         <Badge

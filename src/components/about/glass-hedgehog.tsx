@@ -2,15 +2,15 @@ import { cn } from "@/lib/utils";
 
 export function GlassHedgehogScout() {
   return (
-    <div className="relative mx-auto h-44 max-w-6xl overflow-hidden px-6 sm:h-48 lg:h-56">
+    <div className="relative mx-auto h-44 max-w-6xl overflow-hidden px-4 sm:h-48 sm:px-6 lg:h-56">
       <div
         aria-hidden
-        className="absolute top-1/2 right-6 left-6 h-px -translate-y-1/2 bg-primary/15"
+        className="absolute top-1/2 right-6 left-6 h-px -translate-y-1/2 bg-primary/30"
       />
-      <span className="font-tech pointer-events-none absolute top-3 left-6 max-w-[14rem] text-[10px] tracking-[0.1em] text-muted-foreground">
+      <span className="font-tech pointer-events-none absolute top-3 left-4 max-w-[10rem] text-[10px] tracking-[0.1em] text-muted-foreground sm:left-6 sm:max-w-[14rem]">
         Magnus the First&apos;s play pen
       </span>
-      <span className="font-tech pointer-events-none absolute top-3 right-6 text-[10px] tracking-[0.16em] text-primary uppercase">
+      <span className="font-tech pointer-events-none absolute top-3 right-4 text-[10px] tracking-[0.16em] text-primary uppercase sm:right-6">
         Finding bugs
       </span>
 

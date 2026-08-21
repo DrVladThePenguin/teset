@@ -67,8 +67,8 @@ const navItems = [
   { name: "Capabilities", href: "/capabilities" },
   { name: "About Us", href: "/about" },
   { name: "Industries", href: "/industries", children: industries },
-  { name: "Pricing", href: "/#pricing" },
-  { name: "Our Process", href: "/#process" },
+  { name: "Contact Us", href: "/contact" },
+  { name: "Our Process", href: "/process" },
 ];
 
 /** On the home page use in-page hashes so Next does not remount `/`. */
@@ -112,10 +112,10 @@ function IndustriesMenu({
         sideOffset={12}
         className="industry-mega relative w-max min-w-max overflow-visible rounded-none border border-hairline bg-background/90 p-1.5 shadow-[0_20px_50px_-20px_rgba(60,40,120,0.4)] ring-0 backdrop-blur-xl origin-top"
       >
-        <span className="pointer-events-none absolute top-0 left-0 size-2.5 border-t border-l border-primary/60" />
-        <span className="pointer-events-none absolute top-0 right-0 size-2.5 border-t border-r border-primary/60" />
-        <span className="pointer-events-none absolute bottom-0 left-0 size-2.5 border-b border-l border-primary/60" />
-        <span className="pointer-events-none absolute right-0 bottom-0 size-2.5 border-r border-b border-primary/60" />
+        <span className="pointer-events-none absolute top-0 left-0 size-2.5 border-t border-l border-primary/80" />
+        <span className="pointer-events-none absolute top-0 right-0 size-2.5 border-t border-r border-primary/80" />
+        <span className="pointer-events-none absolute bottom-0 left-0 size-2.5 border-b border-l border-primary/80" />
+        <span className="pointer-events-none absolute right-0 bottom-0 size-2.5 border-r border-b border-primary/80" />
         <DropdownMenuGroup className="flex flex-row gap-1">
           {industries.map((industry) => (
             <DropdownMenuItem
@@ -151,7 +151,7 @@ export function SiteHeaderChrome() {
           HEADER_WIDTH
         )}
       >
-        <div className="grid h-full grid-cols-[1fr_auto_1fr] items-center gap-4 pl-8 pr-4 sm:pl-10 sm:pr-6">
+        <div className="grid h-full grid-cols-[minmax(0,1fr)_auto] items-center gap-3 pl-4 pr-3 sm:pl-10 sm:pr-6 lg:grid-cols-[1fr_auto_1fr] lg:gap-4">
           <div className="flex items-center justify-self-start">
             <Logo />
           </div>
@@ -195,30 +195,33 @@ export function SiteHeaderChrome() {
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger
                 render={
-                  <Button variant="ghost" size="icon" className="lg:hidden" />
+                  <Button variant="ghost" size="icon" className="size-11 lg:hidden" />
                 }
               >
                 <Menu />
                 <span className="sr-only">Open menu</span>
               </SheetTrigger>
-              <SheetContent side="right" className="w-full max-w-xs">
+              <SheetContent
+                side="right"
+                className="flex w-full max-w-xs flex-col overflow-y-auto pb-[max(1.5rem,env(safe-area-inset-bottom))]"
+              >
                 <SheetHeader>
                   <SheetTitle className="sr-only">Navigation</SheetTitle>
                   <Logo />
                 </SheetHeader>
-                <div className="mt-8 flex flex-col gap-6">
+                <div className="mt-8 flex flex-col gap-1">
                   {navItems.map((item) =>
                     "children" in item && item.children ? (
-                      <div key={item.name} className="flex flex-col gap-3">
-                        <p className="text-base font-medium text-foreground">
+                      <div key={item.name} className="flex flex-col gap-1 py-2">
+                        <p className="px-1 text-base font-medium text-foreground">
                           {item.name}
                         </p>
-                        <div className="flex flex-col gap-3 pl-3">
+                        <div className="flex flex-col">
                           {item.children.map((industry) => (
                             <a
                               key={industry.name}
                               href={industry.href}
-                              className="flex items-center gap-2 text-sm text-muted-foreground"
+                              className="flex min-h-11 items-center gap-2 px-3 text-sm text-muted-foreground"
                               onClick={() => setOpen(false)}
                             >
                               <industry.icon />
@@ -231,13 +234,20 @@ export function SiteHeaderChrome() {
                       <a
                         key={item.name}
                         href={resolveHref(item.href, pathname)}
-                        className="text-base font-medium text-foreground"
+                        className="flex min-h-11 items-center px-1 text-base font-medium text-foreground"
                         onClick={() => setOpen(false)}
                       >
                         {item.name}
                       </a>
                     )
                   )}
+                  <a
+                    href={demoHref}
+                    className="flex min-h-11 items-center px-1 text-base font-medium text-foreground"
+                    onClick={() => setOpen(false)}
+                  >
+                    Sign in
+                  </a>
                   <Button
                     size="lg"
                     className="mt-2 w-full rounded-full px-5"
