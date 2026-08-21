@@ -111,7 +111,7 @@ export function HeroSection() {
             size="lg"
             variant="outline"
             className="h-11 rounded-full border-primary-foreground/45 bg-white/10 px-5 text-base text-primary-foreground backdrop-blur-sm hover:bg-white/20 hover:text-primary-foreground"
-            render={<a href="#platform" />}
+            render={<a href="#process" />}
             nativeButton={false}
           >
             How it works

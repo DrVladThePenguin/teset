@@ -37,7 +37,7 @@ const features = [
 export function ProcessSection() {
   return (
     <section
-      id="platform"
+      id="process"
       className="relative border-y border-hairline py-24 lg:py-32"
     >
       <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 lg:grid-cols-2">

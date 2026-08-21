@@ -296,7 +296,7 @@ export function VideoCtaSection() {
               size="lg"
               variant="outline"
               className="h-11 rounded-full border-hairline bg-transparent px-6"
-              render={<a href="#platform" />}
+              render={<a href="#process" />}
               nativeButton={false}
             >
               How it works

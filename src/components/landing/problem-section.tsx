@@ -67,7 +67,7 @@ export function ProblemSection() {
 
         <div className="flex justify-start">
           <a
-            href="#platform"
+            href="#process"
             className="inline-flex items-center gap-2 border-b border-primary/40 pb-0.5 font-tech text-[11px] tracking-[0.12em] text-primary uppercase transition-opacity hover:opacity-80"
           >
             Why Continuous Pentesting matters
